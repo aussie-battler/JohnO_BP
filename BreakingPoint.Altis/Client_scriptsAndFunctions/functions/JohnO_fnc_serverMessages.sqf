@@ -10,20 +10,24 @@ _serverRestartInterval = getNumber (missionConfigFile >> "BreakingPoint" >> "Cfg
 
 //hint format ["Restart: %1 -- Time: %2 -- Next message: %3",_serverRestartInterval,time,60];
 
-{
+if !(JohnO_BP_restartInterval_messages isEqualTo []) then
+{	
 
-	private ["_time","_message"];
-
-	_time = (_x select 0) * 60;
-	_message = _x select 1;
-
-	if ((_serverRestartInterval - _time) < time) then
 	{
-		systemChat _message;
 
-		JohnO_BP_restartInterval_messages = JohnO_BP_restartInterval_messages - [_x];
-	};	
-} forEach JohnO_BP_restartInterval_messages;
+		private ["_time","_message"];
+
+		_time = (_x select 0) * 60;
+		_message = _x select 1;
+
+		if ((_serverRestartInterval - _time) < time) then
+		{
+			systemChat _message;
+
+			JohnO_BP_restartInterval_messages = JohnO_BP_restartInterval_messages - [_x];
+		};	
+	} forEach JohnO_BP_restartInterval_messages;
+};	
 
 // Hints
 
