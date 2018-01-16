@@ -22,7 +22,7 @@ class CfgBreakingPointServerSettings
 	};
 	class MixedGroupPointsGain
 	{
-		disableMixedGroupPointsGain = 1;	//tunrs point gain for mixed group off, point lose still on 0 = off , 1 = on
+		disableMixedGroupPointsGain = 0;	//tunrs point gain for mixed group off, point lose still on 0 = off , 1 = on
 	};
 	class groupLeaveTimer
 	{
