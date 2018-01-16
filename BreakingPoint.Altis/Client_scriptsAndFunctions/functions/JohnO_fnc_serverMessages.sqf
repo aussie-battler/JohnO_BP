@@ -20,7 +20,7 @@ if !(JohnO_BP_restartInterval_messages isEqualTo []) then
 		_time = (_x select 0) * 60;
 		_message = _x select 1;
 
-		if ((_serverRestartInterval - _time) < time) then
+		if ((_serverRestartInterval - _time) < servertime) then
 		{
 			systemChat _message;
 
