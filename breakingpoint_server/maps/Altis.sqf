@@ -66,8 +66,8 @@ _worldObjects =
 	["Land_i_Barracks_V1_F",38.9139,[26746.1,24573.6,0.0759449],true],
 
 	//Cap Thelos
-	["Land_i_Barracks_V1_F",58.6248,[24018.4,15460.8,-0.152293],true],
-	
+	["Land_i_Barracks_V1_F",58.6248,[24018.4,15460.8,-0.152293],true]
+];	
 	//Base 1 - Outlaw
 	/*
 	["BP_Sign_Outlaw",34.1093,[4754.14,17697.1,-0.117416],false],
@@ -156,7 +156,7 @@ _worldObjects =
 	["Land_Wreck_Truck_F",283.821,[4809.42,17800.6,0.00297546],false],
 	["Land_Wreck_Skodovka_F",289.068,[4814.59,17796,-0.0649567],false],
 	*/
-
+	/*
 	//Base 2 - Hunter
 	["BP_Sign_Outlaw",256.55,[5390.3,10262.2,9.98807],false],
 	["Land_Stone_8m_F",67.7378,[5336.28,10301.1,0.222946],false],
@@ -907,7 +907,7 @@ _worldObjects =
 	["Land_Kiosk_gyros_F",41.5643,[14867.4,11065.8,0.35342],false],
 	["Land_City_Gate_F",44.8957,[14880.5,11064.1,-0.0230389],true]
 ];
-
+*/
 {
 	_worldspace = _x;
 	_classname = (_x select 0);
@@ -1032,3 +1032,28 @@ _objs =
 	};
 	_obj enableDynamicSimulation true;
 } count _objs;
+
+ExileRouletteChairs = [];
+ExileRouletteChairPositions = [];
+
+// 2 Vehicles
+private _vehicles = [
+["Land_HistoricalPlaneWreck_02_front_F", [17519.3, 13200.6, 15.049], [-0.908773, 0.416609, -0.0238301], [-0.0213272, 0.0106616, 0.999716], false],
+["Land_Wreck_Slammer_F", [17494.9, 13186.1, 14.8333], [-0.999158, -0.0409228, 0.0030317], [0.00265204, 0.00932847, 0.999953], false]
+];
+
+{
+    private _vehicle = (_x select 0) createVehicle (_x select 1);
+    _vehicle allowDamage false;
+    _vehicle setPosWorld (_x select 1);
+    _vehicle setVectorDirAndUp [_x select 2, _x select 3];
+    _vehicle enableSimulationGlobal (_x select 4);
+    _vehicle setVariable ["ExileIsLocked", -1, true];
+    
+    if (_vehicle isKindOf "Exile_RussianRouletteChair") then
+    {
+        ExileRouletteChairs pushBack _vehicle;
+        ExileRouletteChairPositions pushBack [_x select 1, getDir _vehicle];
+    };
+}
+forEach _vehicles;
