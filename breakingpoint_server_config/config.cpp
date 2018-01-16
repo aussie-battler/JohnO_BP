@@ -30,7 +30,7 @@ class CfgBreakingPointServerSettings
 	};
 	class ServerRestartSettings
 	{
-		overwriteExtensionCall = 1; // 1 -- Overwrite BPs hard coded restart schedual 0 -- Use BP hard coded restart schedual
+		overwriteExtensionCall = 0; // 1 -- Overwrite BPs hard coded restart schedual 0 -- Use BP hard coded restart schedual
 		restartInterval = 180;		// Time in minutes for your server to restart after initializing
 	};
 };
