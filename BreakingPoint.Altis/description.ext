@@ -54,6 +54,8 @@ class CfgFunctions
     };
 };
 
+#include "loot\CfgBuildingLoot.hpp"
+
 class BreakingPoint
 {
 	class CfgSettings

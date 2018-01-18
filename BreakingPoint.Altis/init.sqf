@@ -37,5 +37,6 @@ initialized = true;
 [] spawn JohnO_fnc_clientLoop;
 
 diag_log "Client scripts and functions initialized";
+
 //_squadParams = squadParams player;
 //diag_log _squadParams;
