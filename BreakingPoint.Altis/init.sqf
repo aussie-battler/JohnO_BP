@@ -22,6 +22,8 @@ BP_LootServer = (paramsArray select 9) == 1;
 BP_LegionOnly = (paramsArray select 10) == 1;
 BP_FastBoot = (paramsArray select 11) == 1;
 
+setTerrainGrid 3.125;
+
 //Client Init Only
 if (isServer) exitWith {};
 if (!hasInterface) exitWith {};
